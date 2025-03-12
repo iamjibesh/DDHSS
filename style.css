@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.8), rgba(4, 9, 30, 0.3)),
+    url(images/banner.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 30px;
+}
+
+.hero {
+  color: white;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  width: 90%;
+  min-height: 100vh;
+}
+
+.hero-text img {
+  margin-bottom: 30px;
+}
+
+.hero-text h1 {
+  font-weight: 600;
+  font-size: 64px;
+}
+
+@media (max-width: 700px) {
+  .hero-text h1 {
+    font-size: 32px;
+  }
+}
