@@ -241,61 +241,6 @@
     </section>
 
     <!-- Contact us Section with google map -->
-    <section class="contact-us-container">
-      <h2 class="text-center">Contact Us</h2>
-      <div class="container mt-5">
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.6657691530186!2d89.8704375747256!3d26.07717737715505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e299c5a48099c7%3A0x100060eea5704808!2sDhepdhepi%20Higher%20Secondary%20School!5e0!3m2!1sen!2sin!4v1741895263628!5m2!1sen!2sin"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-        <div class="form">
-          <form id="contactForm" onsubmit="sendEmail(event)">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
-
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required />
-
-            <label for="email">Email ID</label>
-            <input type="email" id="email" name="email" required />
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-
-            <button type="submit">Send</button>
-            <p class="confirmation" id="confirmationMessage">
-              Your message has been sent.
-            </p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <script>
-      function sendEmail(event) {
-          event.preventDefault();
-          const name = document.getElementById('name').value;
-          const phone = document.getElementById('phone').value;
-          const email = document.getElementById('email').value;
-          const message = document.getElementById('message').value;
-
-          const mailtoLink = mailto:mr.jibesh@gmail.com?subject=Contact%20Us%20Form%20Submission&body=Name:%20${name}%0APhone:%20${phone}%0AEmail:%20${email}%0AMessage:%20${message};
-          window.location.href = mailtoLink;
-
-          const confirmationMessage = document.getElementById('confirmationMessage');
-          confirmationMessage.style.display = 'block';
-          setTimeout(() => {
-              confirmationMessage.style.display = 'none';
-          }, 5000);
-      }
-    </script>
 
     <!-- Bootstrap Javascript -->
     <script
