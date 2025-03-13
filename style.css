@@ -78,6 +78,7 @@
 .faculty-container {
   background-color: #eeeeee;
   padding: 1rem;
+  margin-bottom: 5rem;
 }
 
 .faculty {
@@ -127,4 +128,16 @@
 .faculty-btn a:hover {
   color: white;
   transition: 0.5s;
+}
+
+/* Gallery Section */
+.gallery-container {
+  padding: 1rem;
+  text-align: center;
+}
+
+.gallery {
+  margin: 0 auto 5rem auto;
+  text-align: center;
+  width: 80%;
 }
