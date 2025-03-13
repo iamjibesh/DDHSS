@@ -85,6 +85,11 @@
   text-align: center;
   width: 80%;
 }
+@media {
+  .faculty {
+    width: 100%;
+  }
+}
 
 .faculty-cards {
   display: flex;
