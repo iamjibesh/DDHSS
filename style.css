@@ -12,6 +12,7 @@
   background-position: center;
   background-size: cover;
   position: relative;
+  margin-bottom: 5rem;
 }
 
 .logo-section {
@@ -51,4 +52,79 @@
   .hero-text h1 {
     font-size: 32px;
   }
+}
+
+/* facilities section */
+
+.facilities {
+  margin: 5rem auto;
+  text-align: center;
+  width: 80%;
+}
+
+.facility-cards {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+@media (max-width: 750px) {
+  .facility-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* faculties section */
+.faculty-container {
+  background-color: #eeeeee;
+  padding: 1rem;
+}
+
+.faculty {
+  margin: 5rem auto;
+  text-align: center;
+  width: 80%;
+}
+
+.faculty-cards {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+@media (max-width: 750px) {
+  .faculty-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.faculty-btn {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.faculty-btn-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faculty-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+.faculty-btn:hover {
+  color: white;
+  font-weight: 500;
+  border: 1px solid #ffffff;
+  background: #5a639c;
+  transition: 0.5s;
+}
+.faculty-btn a:hover {
+  color: white;
+  transition: 0.5s;
 }
