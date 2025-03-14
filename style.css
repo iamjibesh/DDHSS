@@ -214,8 +214,20 @@ h2 {
   background-color: #eeeeee;
 }
 
+.google-maps-mobile {
+  padding-bottom: 5rem;
+  /* background-color: #eeeeee; */
+}
+
 @media (min-width: 801px) {
   .google-maps-mobile {
     display: none;
   }
+}
+
+/* Footer Section */
+
+.footer-link {
+  text-decoration: none;
+  color: blue;
 }
