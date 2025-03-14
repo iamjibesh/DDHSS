@@ -226,8 +226,26 @@ h2 {
 }
 
 /* Footer Section */
+/* Footer */
+.footer-container {
+  width: auto;
+  margin: auto;
+  padding-bottom: 30px;
+  text-align: center;
+  padding-top: 50px;
+  background: #fff3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* overflow: auto; */
+}
 
-.footer-link {
+.social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-container a {
   text-decoration: none;
-  color: blue;
 }
