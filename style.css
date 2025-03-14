@@ -15,6 +15,11 @@
   margin-bottom: 5rem;
 }
 
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
 .logo-section {
   display: flex;
   align-items: center;
@@ -143,3 +148,61 @@
 }
 
 /* Contact us section with google map */
+.contact-container {
+  background-color: #eeeeee;
+  padding: 5rem;
+  margin-bottom: 5rem;
+}
+
+.contact-us {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 3rem;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.label {
+  padding-left: 20px;
+  padding-bottom: 5px;
+  font-size: 14px;
+}
+
+.contact-input {
+  width: 400px;
+  height: 50px;
+  border: none;
+  outline: none;
+  padding: 25px;
+  color: #666;
+  border-radius: 50px;
+}
+
+.contact-left textarea {
+  height: 140px;
+  padding-top: 15px;
+  border-radius: 20px;
+}
+
+.contact-input:focus {
+  border: 2px solid black;
+}
+
+@media (max-width: 750px) {
+  .contact-us {
+    flex-direction: column;
+  }
+
+  .google-maps {
+    width: 500px;
+    overflow: hidden;
+  }
+}
