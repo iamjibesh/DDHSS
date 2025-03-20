@@ -1,0 +1,299 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.8), rgba(4, 9, 30, 0.3)),
+    url(images/banner.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 30px;
+}
+
+.hero {
+  color: white;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  width: 90%;
+  min-height: 80vh;
+}
+
+.hero-text img {
+  margin-bottom: 30px;
+}
+
+.hero-text h1 {
+  font-weight: 600;
+  font-size: 64px;
+}
+
+@media (max-width: 700px) {
+  .hero-text h1 {
+    font-size: 32px;
+  }
+}
+
+/* facilities section */
+
+.facilities {
+  margin: 5rem auto;
+  text-align: center;
+  width: 80%;
+}
+
+.facilities p {
+  color: #777;
+}
+
+.facilities h4 {
+  color: #555555;
+}
+
+.facility-cards {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+@media (max-width: 750px) {
+  .facility-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* faculties section */
+.faculty-container {
+  background-color: #eeeeee;
+  padding: 1rem;
+  margin-bottom: 5rem;
+}
+
+.faculty {
+  margin: 5rem auto;
+  text-align: center;
+  width: 80%;
+}
+
+.faculty .card-title {
+  color: #555555;
+}
+
+.faculty .card-text {
+  font-size: 14px;
+  color: #777;
+}
+
+.faculty-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+/* @media (max-width: 750px) {
+  .faculty-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+} */
+
+.faculty-btn {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.faculty-btn-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faculty-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+.faculty-btn:hover {
+  color: white;
+  font-weight: 500;
+  border: 1px solid #ffffff;
+  background: #5a639c;
+  transition: 0.5s;
+}
+.faculty-btn a:hover {
+  color: white;
+  transition: 0.5s;
+}
+
+/* Gallery Section */
+.gallery-container {
+  padding: 1rem;
+  text-align: center;
+}
+
+.gallery {
+  margin: 0 auto 5rem auto;
+  text-align: center;
+  width: 80%;
+}
+
+/* Contact us section with google map */
+.contact-container {
+  background-color: #eeeeee;
+  padding: 5rem;
+}
+
+.contact-us {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 3rem;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.label {
+  padding-left: 20px;
+  padding-bottom: 5px;
+  font-size: 14px;
+}
+
+.contact-input {
+  width: 400px;
+  height: 50px;
+  border: none;
+  outline: none;
+  padding: 25px;
+  color: #666;
+  border-radius: 50px;
+}
+
+.contact-left textarea {
+  height: 140px;
+  padding-top: 15px;
+  border-radius: 20px;
+}
+
+.contact-input:focus {
+  border: 2px solid black;
+}
+
+@media (max-width: 800px) {
+  .contact-us {
+    flex-direction: column;
+  }
+
+  .contact-input {
+    width: 200px;
+  }
+
+  .google-maps {
+    width: 100%;
+    display: none;
+  }
+}
+
+.google-maps-mobile-section {
+  background-color: #eeeeee;
+}
+
+.google-maps-mobile {
+  /* padding-bottom: 5rem; */
+  background-color: #d0ddd0;
+}
+
+@media (min-width: 801px) {
+  .google-maps-mobile {
+    display: none;
+  }
+}
+
+/* Footer Section */
+/* Footer */
+.footer-container {
+  width: auto;
+  margin: auto;
+  padding-bottom: 30px;
+  text-align: center;
+  padding-top: 50px;
+  background: #d0ddd0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* overflow: auto; */
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-container a {
+  text-decoration: none;
+}
+
+/* GALLERY PAGE */
+/* Gallery header */
+.gallery-header {
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #727d73;
+  height: 12rem;
+  margin-bottom: 3rem;
+}
+
+.gallery-header h2 {
+  font-size: 64px;
+}
+
+.gallery img {
+  aspect-ratio: 2/1;
+}
+
+@media (max-width: 750px) {
+  .gallery img {
+    aspect-ratio: 4/3;
+  }
+}
+
+/* FACULTY PAGE */
