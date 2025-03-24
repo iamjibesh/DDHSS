@@ -84,12 +84,12 @@ h2 {
 
 .message-img img {
   /* overflow: hidden; */
-  width: 80%;
+  width: 90%;
 }
 
 .message-text p {
   text-align: justify;
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 
