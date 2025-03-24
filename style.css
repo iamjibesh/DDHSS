@@ -97,6 +97,10 @@ h2 {
   .message-box {
     flex-direction: column;
   }
+
+  .message-img img {
+    width: 100%;
+  }
 }
 
 /* facilities section */
