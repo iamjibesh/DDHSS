@@ -101,6 +101,10 @@ h2 {
   .message-img img {
     width: 100%;
   }
+
+  .message-text p {
+    width: 100%;
+  }
 }
 
 /* facilities section */
