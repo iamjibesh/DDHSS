@@ -363,6 +363,10 @@ hr {
   text-align: center;
 }
 
+.principal-container img {
+  width: 400px;
+}
+
 @media (max-width: 750px) {
   .principal-container img {
     width: 100%;
