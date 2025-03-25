@@ -340,6 +340,7 @@ h2 {
 
 .gallery img {
   aspect-ratio: 2/1;
+  object-fit: cover;
 }
 
 @media (max-width: 750px) {
