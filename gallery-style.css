@@ -82,6 +82,7 @@ div.gallery-page .item {
   transition: 0.3s;
   aspect-ratio: 4/3;
 }
+
 /* div.gallery .item:hover img {
   transform: scale(1.15);
 } */
