@@ -59,6 +59,30 @@ h2 {
   }
 }
 
+/* Scrolling Banner */
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30;
+  overflow: hidden;
+  position: relative;
+  background-color: lightgreen;
+}
+.scrolling-text {
+  white-space: nowrap;
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 /* Principals Message Section */
 .message-container {
   background-color: #eeeeee;
