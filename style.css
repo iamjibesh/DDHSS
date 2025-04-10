@@ -4,6 +4,14 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* to make the footer stick to the bottom on a empty page body is set to flex and 100vh */
+body {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+
 .header {
   min-height: 100vh;
   width: 100%;
@@ -83,11 +91,63 @@ h2 {
   }
 }
 
+/* HSLC RESULT SECTION */
+.result-section {
+  width: 100%;
+  height: 50vh; /* 50% of the viewport */
+  background: linear-gradient(
+    to right,
+    #1e90ff,
+    #87cefa
+  ); /* Gradient background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  box-sizing: border-box;
+}
+
+.result-section h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.button-container a {
+  text-decoration: none;
+}
+
+.button {
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 10px; /* Rounded corners */
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Smooth hover effect */
+  text-align: center;
+}
+
+.button:hover {
+  background-color: white;
+  color: blue;
+  border: 2px solid blue; /* Blue border on hover */
+}
+/* HSLC RESULT SECTION ENDS */
+
 /* Principals Message Section */
 .message-container {
   background-color: #eeeeee;
   padding: 1rem;
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
 }
 
 .message-box {
@@ -327,6 +387,12 @@ hr {
 
 /* Footer Section */
 /* Footer */
+
+/* to make the footer stick to the bottom footer margin-top is set to auto */
+.footer {
+  margin-top: auto;
+}
+
 .footer-container {
   width: auto;
   margin: auto;
