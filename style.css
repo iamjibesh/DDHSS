@@ -93,6 +93,8 @@ h2 {
 
 /* HSLC RESULT SECTION */
 .result-section {
+  padding-top: 15px;
+  padding-bottom: 15px;
   width: 100%;
   height: 50vh; /* 50% of the viewport */
   background: linear-gradient(
