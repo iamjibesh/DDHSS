@@ -114,6 +114,10 @@ h2 {
   font-size: 2rem;
 }
 
+.result-section a {
+  display: inline-block;
+}
+
 .button-container {
   display: flex;
   gap: 15px;
