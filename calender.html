@@ -60,7 +60,7 @@
       type="image/x-icon"
       sizes="any"
     />
-    <title>Academic Calender - DDHS</title>
+    <title>Academic Calendar - DDHS</title>
     <style>
       .calendar-container {
         max-width: 500px;
@@ -169,6 +169,7 @@
 
       .observable-holiday:hover {
         background-color: black;
+        color: white;
       }
 
       .fully-closed-holiday:hover {
@@ -332,7 +333,7 @@
                 <a class="dropdown-item" href="downloads.html">Downloads</a>
 
                 <a class="dropdown-item active" href="calender.html"
-                  >Academic Calender</a
+                  >Holiday Calendar</a
                 >
               </div>
             </li>
@@ -348,7 +349,7 @@
 
     <!-- Calender Starts -->
     <div class="calendar-container">
-      <h1>Academic Calender, 2025-26</h1>
+      <h1>Holiday Calendar, 2025-26</h1>
       <p class="school-name">DHEPDHEPI H.S. SCHOOL</p>
       <div class="month-year">
         <button id="prev"><</button>
@@ -368,7 +369,7 @@
       </div>
       <br />
       <div class="info-container">
-        <p>Click on the colored cells for more info on Holiday!</p>
+        <p>Click on the coloured cells for more info on Holiday!</p>
       </div>
     </div>
     <!-- Calender Ends -->
@@ -423,12 +424,50 @@
           { type: "pure", name: "Janmotsav of Sri Sri Madhabdeva" },
         ],
 
-        "2025-08-15": [{ type: "observable", name: "Independance Day" }],
-        "2025-12-25": [{ type: "pure", name: "Christmas" }],
-        "2026-01-26": [
-          { type: "pure", name: "Republic Day" },
-          { type: "observable", name: "Another Event" },
+        "2025-08-15": [{ type: "observable", name: "Independence Day" }],
+        "2025-08-25": [
+          { type: "observable", name: "Tirubhav Tithi of Srimanta Sankardeva" },
         ],
+
+        "2025-09-03": [{ type: "pure", name: "Karam Puja" }],
+        "2025-09-12": [
+          { type: "observable", name: "Tirubhav Tithi of Sri Sri Madhabdeva" },
+        ],
+        "2025-09-14": [{ type: "pure", name: "Janmastomi" }],
+        "2025-09-29": [{ type: "pure", name: "Durga Puja" }],
+        "2025-09-30": [{ type: "pure", name: "Durga Puja" }],
+
+        "2025-10-01": [{ type: "pure", name: "Durga Puja" }],
+        "2025-10-02": [
+          { type: "pure", name: "Vijaya Dashomi" },
+          { type: "observable", name: "Janmotsav of Sri Sri Sankardeva" },
+          { type: "observable", name: "Birthday of Mahatma Gandhi" },
+        ],
+        "2025-10-18": [{ type: "pure", name: "Kati Bihu" }],
+        "2025-10-20": [{ type: "pure", name: "Kali Puja & Diwali" }],
+        "2025-10-23": [{ type: "pure", name: "Bhatri Dwitiya" }],
+        "2025-10-28": [{ type: "pure", name: "Chhat Puja" }],
+
+        "2025-11-05": [{ type: "pure", name: "Guru Nanak's Birthday" }],
+        "2025-11-24": [{ type: "observable", name: "Lachit Divas" }],
+
+        "2025-12-02": [{ type: "observable", name: "Asom Divas" }],
+        "2025-12-25": [{ type: "pure", name: "Christmas Day" }],
+
+        "2026-01-14": [{ type: "pure", name: "Magh Bihu" }],
+        "2026-01-14": [{ type: "pure", name: "Magh Bihu & Tusu Puja" }],
+        "2026-01-23": [
+          { type: "pure", name: "Netaji's Birthday" },
+          { type: "observable", name: "Saraswati Puja" },
+        ],
+        "2026-01-26": [{ type: "pure", name: "Republic Day" }],
+        "2026-01-27": [{ type: "pure", name: "Gwthar Bathou San" }],
+        "2026-01-31": [{ type: "pure", name: "Me-Dam-Me-Phi" }],
+
+        "2026-02-01": [{ type: "pure", name: "Bir Chilaray Divas" }],
+
+        "2026-03-04": [{ type: "pure", name: "Holi" }],
+        "2026-03-21": [{ type: "pure", name: "Id-Ul-Fitre" }],
       };
 
       const currentYear = new Date().getFullYear();
@@ -559,7 +598,7 @@
               .map(
                 (holiday) =>
                   `• ${holiday.name} (${
-                    holiday.type === "pure" ? "Full Holiday" : "Observable"
+                    holiday.type === "pure" ? "Full Holiday" : "Observance"
                   })`
               )
               .join("<br>");
