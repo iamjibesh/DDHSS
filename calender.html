@@ -175,6 +175,24 @@
         background-color: black;
       }
 
+      /* Overlay */
+      .modal,
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        display: none;
+      }
+
+      .overlay {
+        background: rgba(0, 0, 0, 0.5); /* Translucent black */
+        z-index: 999; /* Ensures it sits under the modal but above everything else */
+      }
+      /* Overlay Ends */
+
       .modal {
         display: none;
         position: fixed;
@@ -338,6 +356,12 @@
         <button id="next">></button>
       </div>
       <div id="calendar"></div>
+
+      <!-- Overlay -->
+      <!-- Full-screen translucent overlay -->
+      <div class="overlay" id="overlay"></div>
+
+      <!-- Overlay Ends -->
       <div id="holiday-info" class="modal">
         <span class="close">&times;</span>
         <p id="holiday-reason"></p>
@@ -421,6 +445,8 @@
       const prevButton = document.getElementById("prev");
       const nextButton = document.getElementById("next");
       const modal = document.getElementById("holiday-info");
+      //overlay
+      const overlay = document.getElementById("overlay");
       const modalContent = document.getElementById("holiday-reason");
       const closeModal = document.querySelector(".modal .close");
 
@@ -539,12 +565,14 @@
               .join("<br>");
             modalContent.innerHTML = holidayText;
             modal.style.display = "block";
+            overlay.style.display = "block";
           }
         }
       });
 
       closeModal.addEventListener("click", () => {
         modal.style.display = "none";
+        overlay.style.display = "none";
       });
 
       // Initialize
