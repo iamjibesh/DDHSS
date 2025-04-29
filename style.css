@@ -143,8 +143,10 @@ h2 {
 .button:hover {
   background-color: white;
   color: blue;
-  border: 2px solid blue; /* Blue border on hover */
+  /* border: 1px solid blue; Blue border on hover */
+  transition: background-color 0.5s;
 }
+
 /* HSLC RESULT SECTION ENDS */
 
 /* Principals Message Section */
