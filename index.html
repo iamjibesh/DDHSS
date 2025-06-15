@@ -67,7 +67,8 @@
     <!-- *************Scrolling Banner*********** -->
     <div class="banner">
       <div class="scrolling-text">
-        HSLC 2025 (COMPARTMENTAL) result will be declared on 16th June, 2025 from 11am
+        HSLC 2025 (COMPARTMENTAL) result will be declared on 16th June, 2025
+        from 11am
         <a href="notifications.html" class="button"
           >Click to Download the notice</a
         >
@@ -521,6 +522,58 @@
         </div>
       </div>
     </section>
+
+    <!-- POPUP -->
+    <!-- POPUP HTML -->
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup-container">
+        <button class="popup-close-btn" id="popupCloseBtn">&times;</button>
+        <h3 class="popup-heading">
+          HSLC 2025 Compartmental Examination Result
+        </h3>
+
+        <p class="popup-text">
+          Result will be declared on 16th June, from 11am. <br />Click the
+          Button below to check your results
+        </p>
+        <br />
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://sebaonline.org"
+        >
+          <button type="button" class="btn btn-success">Check Result</button>
+        </a>
+        <!-- <img src="your-image.jpg" alt="Popup Image" class="popup-image" /> -->
+      </div>
+    </div>
+
+    <!-- POPUP JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const popupOverlay = document.getElementById("popupOverlay");
+        const popupCloseBtn = document.getElementById("popupCloseBtn");
+
+        // Show popup when page loads
+        setTimeout(function () {
+          popupOverlay.classList.add("active");
+        }, 100);
+
+        // Close popup when close button is clicked
+        popupCloseBtn.addEventListener("click", function () {
+          popupOverlay.classList.remove("active");
+        });
+
+        // Close popup when clicking outside the popup container
+        popupOverlay.addEventListener("click", function (e) {
+          if (e.target === popupOverlay) {
+            popupOverlay.classList.remove("active");
+          }
+        });
+      });
+    </script>
+    <!-- POPUP Ends -->
+
     <!-- Bootstrap Javascript -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
