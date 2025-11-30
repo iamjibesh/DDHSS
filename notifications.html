@@ -230,7 +230,10 @@
 
         async function fetchNotices() {
           try {
-            const response = await fetch(sheetUrl);
+            // Add a unique timestamp to the URL to force a fresh download
+            const response = await fetch(
+              sheetUrl + "&t=" + new Date().getTime()
+            );
             const data = await response.text();
 
             const rows = data.split("\n").slice(1);
@@ -280,8 +283,9 @@
 
         fetchNotices();
       </script>
-      <!-- Google sheet notifications -->
+      <!-- Google sheet notifications Ends -->
 
+      <!-- Old Notification System -->
       <!-- Notification Element Start -->
       <div class="alert alert-success" role="alert">
         <p>
@@ -295,40 +299,7 @@
         </a>
       </div>
       <!-- Notification Element End -->
-
-      <!-- Notification Element Start -->
-      <div class="alert alert-success" role="alert">
-        <p>Higher Secondary Examination 2026 Proramme. (Routine)</p>
-        <a
-          href="https://www.dropbox.com/scl/fi/sc70pj90q1lerxz49zuyh/Programme-HS-Final-2026-final-signed.pdf?rlkey=r2cfosgm8ntp8yz0viskia12o&st=yw9gdpjx&raw=1"
-        >
-          <button type="button" class="btn btn-success">Download</button>
-        </a>
-      </div>
-      <!-- Notification Element End -->
-      <!-- Notification Element Start -->
-      <div class="alert alert-success" role="alert">
-        <p>HSLC Examination 2026 Proramme. (Routine)</p>
-        <a
-          href="https://www.dropbox.com/scl/fi/b5uofuqh7alhbpgpwuepb/HSLC-Exam-2026_Programme.pdf?rlkey=015pq62clpim3xzmhj6ujnrie&st=aoztqe1w&raw=1"
-        >
-          <button type="button" class="btn btn-success">Download</button>
-        </a>
-      </div>
-      <!-- Notification Element End -->
-      <!-- Notification Element Start -->
-      <div class="alert alert-success" role="alert">
-        <p>
-          Talent Search Examination, 2024 result is available. Click below to
-          download the result sheet.
-        </p>
-        <a
-          href="https://www.dropbox.com/scl/fi/2jupe2crncqd52oqi8dvz/e-Booklet-of-Talent-Search-Exam-2024-Pt-I.pdf?rlkey=9huiwrbcvnj5z511i9u34vxva&st=scnx9t1b&raw=1"
-        >
-          <button type="button" class="btn btn-success">Download</button>
-        </a>
-      </div>
-      <!-- Notification Element End -->
+      <!-- Old Notification System -->
     </div>
     <!-- Footer Section -->
     <section class="footer">
