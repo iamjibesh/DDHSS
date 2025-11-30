@@ -142,10 +142,152 @@
 
     <!-- Notification Section -->
     <div class="notifications-container m-5">
+      <!-- Google sheet notifications -->
+      <style>
+        /* 1. Main Container Style */
+        #notification-container {
+          border: 2px solid #198754; /* Matches btn-success green */
+          border-radius: 8px; /* Softens the corners */
+          padding: 20px;
+          max-width: 800px;
+          margin: 20px auto;
+          background-color: #f9fcfa; /* Very faint green background tint */
+        }
 
-<!-- Notification Element Start -->
+        /* 2. Desktop View (Default) */
+        .notice-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          padding-bottom: 15px;
+          margin-bottom: 15px;
+
+          /* The separator line: Light Green */
+          border-bottom: 1px dashed #badbcc;
+        }
+
+        /* Remove border from the last item so it doesn't look weird */
+        .notice-item:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+          padding-bottom: 0;
+        }
+
+        .notice-text-group {
+          flex: 1;
+          padding-right: 15px;
+        }
+
+        .notice-btn-group {
+          white-space: nowrap;
+          margin-top: 0;
+        }
+
+        /* 3. Mobile View (Screens smaller than 600px) */
+        @media (max-width: 600px) {
+          .notice-item {
+            flex-direction: column;
+          }
+
+          .notice-btn-group {
+            margin-top: 10px;
+            width: 100%;
+          }
+
+          /* Optional: Make button full width on mobile for easier tapping */
+          .notice-btn-group .btn {
+            display: block;
+            width: 100%;
+          }
+
+          .notice-text-group {
+            padding-right: 0;
+          }
+        }
+      </style>
+
+      <div id="notification-container">
+        <h3
+          style="
+            border-bottom: 2px solid #198754;
+            padding-bottom: 10px;
+            color: #198754;
+            margin-top: 0;
+          "
+        >
+          📢 School Notices
+        </h3>
+
+        <ul id="notice-list" style="list-style: none; padding: 0; margin: 0">
+          <li>Loading notices...</li>
+        </ul>
+      </div>
+
+      <script>
+        // PASTE YOUR GOOGLE SHEET TSV LINK HERE
+        const sheetUrl =
+          "https://docs.google.com/spreadsheets/d/e/2PACX-1vQNIUh0ycyrrFubdxOX4hsahqF-98tX4akQjXlJdMKjtYZ80ERBtjqTU4m6MZ1Zi-0wlaO3KkCrloI8/pub?output=tsv";
+
+        async function fetchNotices() {
+          try {
+            const response = await fetch(sheetUrl);
+            const data = await response.text();
+
+            const rows = data.split("\n").slice(1);
+            const list = document.getElementById("notice-list");
+            list.innerHTML = "";
+
+            rows.forEach((row) => {
+              const cols = row.split("\t");
+
+              if (cols.length >= 2) {
+                const date = cols[0].trim();
+                const notice = cols[1].trim();
+                const link = cols[2] ? cols[2].trim() : "";
+
+                if (date && notice) {
+                  const li = document.createElement("li");
+                  li.className = "notice-item"; // Use our new CSS class
+
+                  let htmlContent = `
+                            <div class="notice-text-group">
+                                <span style="display:block; color: #198754; font-weight: bold; font-size: 0.85em; margin-bottom: 4px;">📅 ${date}</span>
+                                <span style="font-size: 1.05em; color: #333; line-height: 1.4;">${notice}</span>
+                            </div>
+                        `;
+
+                  if (link.length > 5) {
+                    htmlContent += `
+                                <div class="notice-btn-group">
+                                    <a href="${link}" target="_blank" class="btn btn-success btn-sm">
+                                         Download
+                                    </a>
+                                </div>
+                            `;
+                  }
+
+                  li.innerHTML = htmlContent;
+                  list.appendChild(li);
+                }
+              }
+            });
+          } catch (error) {
+            console.error("Error:", error);
+            document.getElementById("notice-list").innerHTML =
+              '<li style="color:red;">Unable to load notices.</li>';
+          }
+        }
+
+        fetchNotices();
+      </script>
+      <!-- Google sheet notifications -->
+
+      <!-- Notification Element Start -->
       <div class="alert alert-success" role="alert">
-        <p>Class X Pre Board Examination 2025 Proramme(Dhubri District). (Routine)</p>
+        <p>
+          Class X Pre Board Examination 2025 Proramme(Dhubri District).
+          (Routine)
+        </p>
         <a
           href="https://www.dropbox.com/scl/fi/99k8ose9vjrxknnennhmt/Pre-Board-Routine-2025.pdf?rlkey=dizwgco2xwzbo7rp6awlartjh&st=j2s9yhvh&raw=1"
         >
