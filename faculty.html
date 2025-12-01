@@ -230,8 +230,6 @@
             </div>
           </div>
 
-          
-
           <div class="card shadow w-lg-50" style="width: 12rem">
             <img
               class="card-img-top"
@@ -594,7 +592,9 @@
           ></a>
         </div>
         <div class="copyright">
-          <p class="copyright-text mt-3 mb-0">© Copyright 2025 DDHSS</p>
+          <p class="copyright-text mt-3 mb-0">
+            © Copyright <span id="year"></span> DDHSS
+          </p>
         </div>
         <div class="love">
           <p>
@@ -609,6 +609,12 @@
         </div>
       </div>
     </section>
+
+    <!-- Footer Javascript -->
+    <script>
+      // Get the current year automatically
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
     <!-- Bootstrap Javascript -->
     <script

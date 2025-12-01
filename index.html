@@ -489,13 +489,14 @@
             href="https://www.facebook.com/share/g/14sbGfnjdY/"
             ><i class="bi bi-facebook"></i
           ></a>
-          <a
-            href="mailto:dhepdhepihs@gmail.com?body=%0D%0A%0D%0A%0D%0A---%20Sent%20from%20Dhepdhepi%20HS%20School%20School%20Website"
+          <a href="mailto:dhepdhepihs@gmail.com"
             ><i class="bi bi-envelope-at-fill"></i
           ></a>
         </div>
         <div class="copyright">
-          <p class="copyright-text mt-3 mb-0">© Copyright 2025 DDHSS</p>
+          <p class="copyright-text mt-3 mb-0">
+            © Copyright <span id="year"></span> DDHSS
+          </p>
         </div>
         <div class="love">
           <p>
@@ -510,6 +511,12 @@
         </div>
       </div>
     </section>
+
+    <!-- Footer Javascript -->
+    <script>
+      // Get the current year automatically
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
     <!-- POPUP -->
     <!-- POPUP HTML -->
