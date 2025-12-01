@@ -144,302 +144,117 @@
 
     <!-- Downloads Section -->
     <div class="downloads-container m-5">
-      <!-- First Accordion Starts -->
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <!-- to make the accordion always open, delete the collapsed class below & area-expanded to true -->
-            <!-- To make the accordion collapse & open on click, Set data-bs-target to "#collapseOne" & aria-controls to "collapseOne" -->
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="False"
-              aria-controls="collapseOne"
-            >
-              Academic Calenders for the Session 2025-26
-            </button>
-          </h2>
-          <!-- to make the accordion always open, insert class show below -->
-          <!-- To make the accordion collapse & open on click, Set id to "collapseOne" -->
-          <div
-            id="collapseOne"
-            class="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>Academic Calender for Class XI & XII</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/doe0itp7fx4hxpqbe6dhi/ACADEMIC-CALENDAR-2025-26_forXI_XII.pdf?rlkey=hjoukboq9s7s5l1i5cnc3t7pv&st=mufamdb6&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Ends -->
-
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>Academic Calender for Class IX & X</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/p2ubka60xv5tzxs639ybh/AcedamicCalendar_-for_IX_X_2025-26.pdf?rlkey=hsznoutg9m0uwx7sdesas4gf7&st=x5hw9ixf&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Ends -->
-
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>Academic Calender for Classes Ka Shreni to Class VIII</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/dkdqx5zlxn3816d538n6k/Academic-Calendar.pdf?rlkey=fx9sol9tegxabyzwox0waqv8x&st=xcn4ip76&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Start -->
-            </div>
-          </div>
+      <!-- Google Sheet Integration -->
+      <div class="downloads-container m-5">
+        <div class="accordion" id="downloadsAccordion">
+          <div class="text-center">Loading downloads...</div>
         </div>
       </div>
-      <!-- First Accordion Ends -->
 
-      <!-- Second Accordion Starts -->
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <!-- to make the accordion always open, delete the collapsed class below & area-expanded to true -->
-            <!-- To make the accordion collapse & open on click, Set data-bs-target to "#collapseTwo" & aria-controls to "collapseTwo" -->
+      <script>
+        // PASTE YOUR DOWNLOADS SHEET TSV LINK HERE
+        const downloadSheetUrl =
+          "https://docs.google.com/spreadsheets/d/e/2PACX-1vQcmvit7eH35bTuyXexoM6EcTem-yTCc-vx6AmqTgXBYRfNF8nO0390wRzW40Dz7a4NYnDmYbzyt7lo/pub?output=tsv";
 
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="False"
-              aria-controls="collapseTwo"
-            >
-              CBSE Question Bank for Class X
-            </button>
-          </h2>
-          <!-- to make the accordion always open, insert class show below -->
-          <!-- To make the accordion collapse & open on click, Set id to "collapseTwo" -->
-          <div
-            id="collapseTwo"
-            class="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>Mathematics Question Bank</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/ttpe07d7rrczxa0zjydcq/Question-Bank-Mathematics-Class-X.pdf?rlkey=yhtfzw7mm9m40v04yz8cwwgi1&st=zzizjppk&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Ends -->
+        async function fetchDownloads() {
+          try {
+            const response = await fetch(
+              downloadSheetUrl + "&t=" + new Date().getTime()
+            );
+            const data = await response.text();
 
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>Science Question Bank</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/slg40tgf1mgdb1ekxazjz/Question-Bank-Science-Class-X.pdf?rlkey=qmpkbasql7opykevgcskc11ts&st=53z3p26l&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Ends -->
+            const rows = data.split("\n").slice(1);
+            const groupedData = {};
 
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>English Question Bank</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/8824eb97cy9e8r7jvfjv1/Question-Bank-English-Class-X.pdf?rlkey=346rpytx39h5tw1hc8siei3of&st=clxydujv&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Start -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Second Accordion Ends -->
+            // Step 1: Group data
+            rows.forEach((row) => {
+              const cols = row.split("\t");
+              if (cols.length >= 3) {
+                const category = cols[0].trim();
+                const title = cols[1].trim();
+                const link = cols[2].trim();
 
-      <!-- Third Accordion Starts -->
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <!-- to make the accordion always open, delete the collapsed class below & area-expanded to true -->
-            <!-- To make the accordion collapse & open on click, Set data-bs-target to "#collapseThree" & aria-controls to "collapseThree" -->
+                if (category && title && link) {
+                  if (!groupedData[category]) {
+                    groupedData[category] = [];
+                  }
+                  groupedData[category].push({ title, link });
+                }
+              }
+            });
 
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseThree"
-              aria-expanded="False"
-              aria-controls="collapseThree"
-            >
-              CBSE Sample Question Papers for Class X
-            </button>
-          </h2>
-          <!-- to make the accordion always open, insert class show below -->
-          <!-- To make the accordion collapse & open on click, Set id to "collapseThree" -->
-          <div
-            id="collapseThree"
-            class="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>Mathematics Sample Question Paper</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/2wh117kv7gta4vgikz2s5/Sample-Question-Mathematics-Class-X.pdf?rlkey=t1xs500f2n3zdu1bpepv78497&st=ztv520n1&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Ends -->
+            // Step 2: Build HTML
+            const accordionContainer =
+              document.getElementById("downloadsAccordion");
+            accordionContainer.innerHTML = "";
 
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>Science Sample Question Paper</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/rh09bpdtrvao6b8ljd2cl/Sample-Question-Science-Class-X.pdf?rlkey=noydcfj0tcchgfkjp3s76yhut&st=g5wpguo8&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Ends -->
+            let index = 0;
 
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>English Sample Question Paper</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/zhf3thko0tv3myqa4w2lz/Sample-Question-English-Class-X.pdf?rlkey=sy75r8c1jqnuysuyawrxy3yvy&st=ne7tiaya&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Start -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Third Accordion Ends -->
+            for (const [category, items] of Object.entries(groupedData)) {
+              const headingId = `heading${index}`;
+              const collapseId = `collapse${index}`;
 
-      <!-- Forth Accordion Starts -->
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <!-- to make the accordion always open, delete the collapsed class below & area-expanded to true -->
-            <!-- To make the accordion collapse & open on click, Set data-bs-target to "#collapseFour" & aria-controls to "collapseFour" -->
+              // Logic: Open the first item (Index 0) automatically
+              const isFirstItem = index === 0;
+              const buttonClass = isFirstItem
+                ? "accordion-button"
+                : "accordion-button collapsed";
+              const ariaExpanded = isFirstItem ? "true" : "false";
+              const bodyClass = isFirstItem
+                ? "accordion-collapse collapse show"
+                : "accordion-collapse collapse";
 
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseFour"
-              aria-expanded="False"
-              aria-controls="collapseFour"
-            >
-              Syllabus, 2025
-            </button>
-          </h2>
-          <!-- to make the accordion always open, insert class show below -->
-          <!-- To make the accordion collapse & open on click, Set id to "collapseFour" -->
-          <div
-            id="collapseFour"
-            class="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>Syllabus, 2025 for Class IX</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/tixs36gku7bb9uj7kd94z/Syllabus-IX.pdf?rlkey=kclybyf8g1fl9o4n4x7m5ujlp&st=le9a843g&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Ends -->
+              let headerHTML = `
+                    <h2 class="accordion-header" id="${headingId}">
+                        <button class="${buttonClass}" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#${collapseId}" 
+                            aria-expanded="${ariaExpanded}" aria-controls="${collapseId}">
+                            ${category}
+                        </button>
+                    </h2>
+                `;
 
-              <!-- Download Element Start -->
-              <div class="alert alert-primary" role="alert">
-                <p>Syllabus, 2025 for Class X</p>
-                <a
-                  href="https://www.dropbox.com/scl/fi/k9qe4f51yfax4xlixl43y/Syllabus-X.pdf?rlkey=3pya22umr887bs8o5y8xh5tbb&st=4xozzmqh&dl=1"
-                >
-                  <button type="button" class="btn btn-primary">
-                    Download
-                  </button>
-                </a>
-              </div>
-              <!-- Download Element Ends -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Forth Accordion Ends -->
+              let bodyContent = "";
+              items.forEach((item) => {
+                bodyContent += `
+                        <div class="alert alert-primary" role="alert">
+                            <p class="mb-2" style="font-weight: 500; color: #333;">
+                                ${item.title}
+                            </p>
+                            
+                            <a href="${item.link}" target="_blank" class="btn btn-primary btn-sm">
+                                Download
+                            </a>
+                        </div>
+                    `;
+              });
+
+              const accordionItem = document.createElement("div");
+              accordionItem.className = "accordion-item";
+              accordionItem.innerHTML = `
+                    ${headerHTML}
+                    <div id="${collapseId}" class="${bodyClass}" 
+                        aria-labelledby="${headingId}" data-bs-parent="#downloadsAccordion">
+                        <div class="accordion-body">
+                            ${bodyContent}
+                        </div>
+                    </div>
+                `;
+
+              accordionContainer.appendChild(accordionItem);
+              index++;
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            document.getElementById("downloadsAccordion").innerHTML =
+              '<p class="text-danger text-center">Unable to load downloads.</p>';
+          }
+        }
+
+        fetchDownloads();
+      </script>
+      <!-- Google Sheet Integration Ends -->
     </div>
-    <!-- Footer Section -->
-    <section class="footer">
-      <div class="footer-container">
-        <div class="social">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.facebook.com/share/g/14sbGfnjdY/"
-            ><i class="bi bi-facebook"></i
-          ></a>
-          <a href="mailto:dhepdhepihs@gmail.com"
-            ><i class="bi bi-envelope-at-fill"></i
-          ></a>
-        </div>
-        <div class="copyright">
-          <p class="copyright-text mt-3 mb-0">© Copyright 2025 DDHSS</p>
-        </div>
-        <div class="love">
-          <p>
-            Made with ❤ by
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.facebook.com/jibeshsaha"
-              >Jibesh Saha</a
-            >
-          </p>
-        </div>
-      </div>
-    </section>
 
     <!-- Bootstrap Javascript -->
     <script
