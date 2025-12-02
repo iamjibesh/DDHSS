@@ -46,7 +46,7 @@ body {
 
   /* Layout & Spacing */
   padding: 12px 15px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 
   /* HORIZONTAL SCROLLING LOGIC */
   display: flex;
@@ -91,7 +91,7 @@ body {
 
   /* LAYOUT & SPACING */
   padding: 15px 10px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 
   /* HORIZONTAL SCROLL (Mobile Swipe) */
   display: flex;
