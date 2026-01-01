@@ -470,10 +470,16 @@
         "2026-03-21": [{ type: "pure", name: "Id-Ul-Fitre" }],
       };
 
-      const currentYear = new Date().getFullYear();
-      const startDate = new Date(currentYear, 3); // April of the current year
-      const endDate = new Date(currentYear + 1, 2); // March of the next year
-      let currentDate = new Date();
+            let currentDate = new Date();
+      let currentYear = currentDate.getFullYear();
+      
+      // If we are in Jan (0), Feb (1), or Mar (2), the session started in the PREVIOUS year.
+      // Otherwise, the session started in the CURRENT year.
+      let academicStartYear = currentDate.getMonth() < 3 ? currentYear - 1 : currentYear;
+
+      const startDate = new Date(academicStartYear, 3); // April of the Session Start Year
+      const endDate = new Date(academicStartYear + 1, 2); // March of the next year
+
 
       // Ensure the calendar starts within the valid range
       if (currentDate < startDate) currentDate = startDate;
