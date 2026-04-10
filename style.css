@@ -414,10 +414,10 @@ hr {
 .popup-overlay.active {
   opacity: 1;
   visibility: visible;
-  z-index: 1000;
 }
 
 .popup-container {
+  z-index: 1000;
   background-color: white;
   padding: 30px;
   border-radius: 8px;
