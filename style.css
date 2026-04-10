@@ -123,6 +123,7 @@ h2 {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap; /*Ensures responsiveness*/
+  row-gap: 25px;
 }
 
 .button-container a {
