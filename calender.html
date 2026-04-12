@@ -745,14 +745,18 @@
           const holidayList = holidays[dateStr];
 
           if (holidayList) {
-            const holidayText = holidayList
-              .map(
-                (holiday) =>
-                  `• ${holiday.name} (${holiday.type === "pure" ? "Full Holiday" : "Observance"})`,
-              )
-              .join("<br><br>");
+            // Generate a proper structured list (ul and li) for multiple holidays with consistent spacing
+            const holidayListHtml =
+              "<ul>" +
+              holidayList
+                .map(
+                  (holiday) =>
+                    `<li>${holiday.name} (${holiday.type === "pure" ? "Full Holiday" : "Observance"})</li>`,
+                )
+                .join("") +
+              "</ul>";
 
-            modalContent.innerHTML = holidayText;
+            modalContent.innerHTML = holidayListHtml;
             modal.style.display = "block";
             overlay.style.display = "block";
           }
