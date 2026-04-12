@@ -406,6 +406,53 @@
         cursor: not-allowed;
       }
 
+      /* Modal Swipe Animations */
+      .swipe-out-left {
+        animation: swipeOutLeft 0.15s ease-in forwards;
+      }
+      .swipe-in-right {
+        animation: swipeInRight 0.15s ease-out forwards;
+      }
+      .swipe-out-right {
+        animation: swipeOutRight 0.15s ease-in forwards;
+      }
+      .swipe-in-left {
+        animation: swipeInLeft 0.15s ease-out forwards;
+      }
+
+      @keyframes swipeOutLeft {
+        to {
+          transform: translateX(-20px);
+          opacity: 0;
+        }
+      }
+      @keyframes swipeInRight {
+        from {
+          transform: translateX(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes swipeOutRight {
+        to {
+          transform: translateX(20px);
+          opacity: 0;
+        }
+      }
+      @keyframes swipeInLeft {
+        from {
+          transform: translateX(-20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
       /* Mobile Adjustments */
       @media (max-width: 750px) {
         .calendar-wrapper {
@@ -805,6 +852,11 @@
         // 2. Set the starting index based on what the user clicked
         activeModalIndex = currentMonthModalDates.indexOf(clickedDateStr);
 
+        // Reset classes to prevent the content from staying hidden
+        document.getElementById("modal-date").className = "modal-date-text";
+        document.getElementById("holiday-reason").className =
+          "holiday-list-container";
+
         // 3. Render and show the modal
         updateModalContent();
         modal.style.display = "block";
@@ -856,13 +908,36 @@
         }
       }
 
+      // Helper function to animate the modal swipe
+      function animateModalSwipe(direction) {
+        const dateEl = document.getElementById("modal-date");
+        const listEl = document.getElementById("holiday-reason");
+
+        // Decide animation direction
+        const outClass =
+          direction === "next" ? "swipe-out-left" : "swipe-out-right";
+        const inClass =
+          direction === "next" ? "swipe-in-right" : "swipe-in-left";
+
+        // 1. Swipe out the old content
+        dateEl.className = `modal-date-text ${outClass}`;
+        listEl.className = `holiday-list-container ${outClass}`;
+
+        // 2. Wait 150ms for the animation to finish, then update content and swipe it back in
+        setTimeout(() => {
+          updateModalContent();
+          dateEl.className = `modal-date-text ${inClass}`;
+          listEl.className = `holiday-list-container ${inClass}`;
+        }, 150);
+      }
+
       // Modal Left/Right Events
       document
         .getElementById("modal-prev-btn")
         .addEventListener("click", () => {
           if (activeModalIndex > 0) {
             activeModalIndex--;
-            updateModalContent();
+            animateModalSwipe("prev");
           }
         });
 
@@ -871,7 +946,7 @@
         .addEventListener("click", () => {
           if (activeModalIndex < currentMonthModalDates.length - 1) {
             activeModalIndex++;
-            updateModalContent();
+            animateModalSwipe("next");
           }
         });
 
