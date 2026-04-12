@@ -1,7 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-TWMKWTSFD6"
@@ -16,11 +15,9 @@
       gtag("config", "G-TWMKWTSFD6");
     </script>
 
-    <!-- Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Bootstrap link -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -28,24 +25,20 @@
       crossorigin="anonymous"
     />
 
-    <!-- Bootstrap icon link -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;0,800;1,200;1,400;1,600;1,800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;0,700;0,800;1,200;1,400;1,600;1,800&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Local css -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Favicon -->
     <link
       rel="icon"
       href="images/favicon.png"
@@ -54,214 +47,315 @@
     />
     <title>Holiday Calendar - DDHSS</title>
     <style>
-      .calendar-container {
-        max-width: 500px;
-        width: 90%;
-        margin: 20px auto;
-        background: white;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20rem;
+      /* Calendar Container */
+      .calendar-wrapper {
+        max-width: 600px;
+        width: 92%;
+        margin: 100px auto 50px auto;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        overflow: hidden; /* Clips the header gradient to the rounded corners */
+        font-family: "Poppins", sans-serif;
       }
 
-      h1 {
+      /* Vibrant Header Section */
+      .calendar-header {
+        background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      .school-logo {
+        width: 60px;
+        height: auto;
+        margin-bottom: 10px;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+      }
+
+      .school-name-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
         font-weight: 600;
-        text-align: center;
-        color: #444;
-        margin-bottom: 5px;
+        display: inline-block;
+        margin-bottom: 15px;
       }
 
-      .school-name {
-        text-align: center;
-        font-weight: bold;
-        color: #555;
-      }
-
-      .month-year {
+      .month-year-nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 10px;
-        font-weight: bold;
-        color: #444;
+      }
+
+      #month-year {
+        font-size: 1.6rem;
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: 0.5px;
       }
 
       #prev,
       #next {
-        background: #007bff;
+        background: rgba(255, 255, 255, 0.15);
         color: white;
         border: none;
-        padding: 5px 20px;
-        border-radius: 5px;
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        font-size: 14px;
+        transition: all 0.2s;
+        font-size: 1.2rem;
       }
 
       #prev:hover,
       #next:hover {
-        background: #0056b3;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
       }
 
       #prev:disabled,
       #next:disabled {
-        background: #cccccc;
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.3);
         cursor: not-allowed;
+        transform: none;
       }
 
+      /* Calendar Body */
+      .calendar-body {
+        padding: 25px 30px 35px 30px;
+      }
+
+      /* Elegant Pill Legend */
+      .holiday-legend {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+      }
+
+      .legend-pill {
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .legend-pill.full {
+        background: #ffe4e6;
+        color: #e11d48;
+      }
+      .legend-pill.obs {
+        background: #fef3c7;
+        color: #d97706;
+      }
+      .legend-pill.mult {
+        background: #e0e7ff;
+        color: #4f46e5;
+      }
+
+      /* Grid Setup */
       #calendar {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        gap: 3px;
+        gap: 8px;
         text-align: center;
       }
 
       .weekday {
-        font-weight: bold;
-        color: #555;
-        padding: 10px;
-        background: #f0f0f0;
-        border: 1px solid #ddd;
-        border-radius: 8px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #94a3b8;
+        padding-bottom: 10px;
       }
 
       .day {
-        padding: 10px;
-        /* border: 1px solid #ddd; */
-        border-radius: 50px;
-        background: #fff;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px; /* Rounded squares */
+        background: transparent;
         cursor: pointer;
+        font-weight: 600;
+        color: #334155;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 1rem;
+        border: 2px solid transparent;
       }
 
       .day:hover {
-        background: #f0f0f0;
+        background: #f1f5f9;
+        transform: translateY(-2px);
+        border-color: #e2e8f0;
       }
 
+      /* Deep Pastel Holidays */
       .sunday {
-        background: #e0e0e0;
-        color: red;
+        color: #ef4444;
       }
 
       .fully-closed-holiday {
-        background: red;
-        color: white;
+        background: #ffe4e6;
+        color: #be123c;
+      }
+      .fully-closed-holiday:hover {
+        background: #fecdd3;
+        border-color: #fda4af;
       }
 
       .observable-holiday {
-        background: yellow;
+        background: #fef3c7;
+        color: #b45309;
+      }
+      .observable-holiday:hover {
+        background: #fde68a;
+        border-color: #fcd34d;
       }
 
       .multiple-holiday {
-        background: green;
-        color: white;
+        background: #e0e7ff;
+        color: #3730a3;
       }
-
       .multiple-holiday:hover {
-        background-color: black;
+        background: #c7d2fe;
+        border-color: #a5b4fc;
       }
 
-      .observable-holiday:hover {
-        background-color: black;
-        color: white;
-      }
-
-      .fully-closed-holiday:hover {
-        background-color: black;
-      }
-
-      /* Overlay */
-      .modal,
+      /* The Sleek Toast Modal */
       .overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 1000;
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(4px);
+        z-index: 999;
         display: none;
       }
 
-      .overlay {
-        background: rgba(0, 0, 0, 0.5); /* Translucent black */
-        z-index: 999; /* Ensures it sits under the modal but above everything else */
-      }
-      /* Overlay Ends */
-
-      .modal {
+      .toast-modal {
         display: none;
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 300px;
-        max-height: 30%;
-        background: rgb(192, 132, 2);
-        color: white;
-        /* padding: 5px; */
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        text-align: center;
-        font-weight: bold;
+        width: 90%;
+        max-width: 400px;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         z-index: 1000;
-        animation: fadeIn 0.5s;
+        padding: 20px;
+        animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
 
-      @keyframes fadeIn {
+      @keyframes slideUp {
         from {
+          transform: translate(-50%, -40%);
           opacity: 0;
         }
         to {
+          transform: translate(-50%, -50%);
           opacity: 1;
         }
       }
 
-      .modal p {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        min-width: 280px;
+      .toast-content-wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
       }
 
-      .modal .close {
-        position: absolute;
-        top: 2px;
-        right: 10px;
-        font-size: 26px;
-        cursor: pointer;
-        color: white;
-      }
-
-      .info-container {
-        background-color: rgb(119, 255, 255);
-        padding: 5px 10px;
-        border-radius: 8px;
+      .toast-icon {
+        background: #eff6ff;
+        color: #3b82f6;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 12px;
+        font-size: 1.2rem;
+        flex-shrink: 0;
       }
 
-      .info-container p {
+      .toast-text {
+        flex-grow: 1;
+      }
+
+      .toast-title {
+        margin: 0 0 5px 0;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #0f172a;
+      }
+
+      #holiday-reason {
         margin: 0;
-        text-align: center;
+        font-size: 0.9rem;
+        color: #475569;
+        line-height: 1.6;
+        font-weight: 500;
+      }
+
+      .close-btn {
+        background: none;
+        border: none;
+        color: #94a3b8;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+        transition: 0.2s;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+      }
+
+      .close-btn:hover {
+        color: #0f172a;
       }
 
       @media (max-width: 750px) {
-        .weekday {
-          padding: 2px;
-          border-radius: 2px;
-          font-size: 12px;
+        .calendar-wrapper {
+          margin-top: 90px;
+          width: 95%;
         }
-
+        .calendar-header {
+          padding: 20px 15px;
+        }
+        .calendar-body {
+          padding: 20px 15px;
+        }
         .day {
-          padding: 2px;
+          font-size: 0.9rem;
+        }
+        #prev,
+        #next {
+          width: 35px;
+          height: 35px;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Navbar -->
     <nav
       class="navbar fixed-top navbar-expand-lg bg-body-tertiary position-sticky"
     >
@@ -302,7 +396,6 @@
               <a class="nav-link" href="faculty.html">Faculty</a>
             </li>
 
-            <!-- Dropdown -->
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -315,7 +408,6 @@
               >
                 More
               </a>
-              <!-- Add more dropdown links after this div using anchor tags -->
               <div
                 class="dropdown-menu text-center"
                 aria-labelledby="navbarDropdown"
@@ -324,14 +416,11 @@
                   >Notifications</a
                 >
                 <a class="dropdown-item" href="downloads.html">Downloads</a>
-
                 <a class="dropdown-item active" href="calender.html"
                   >Holiday Calendar</a
                 >
               </div>
             </li>
-            <!-- Dropdown Ends -->
-
             <li class="nav-item">
               <a class="nav-link" href="index.html#contact-us">Contact Us</a>
             </li>
@@ -340,34 +429,49 @@
       </div>
     </nav>
 
-    <!-- Calender Starts -->
-    <div class="calendar-container">
-      <h1>Holiday Calendar, 2025-26</h1>
-      <p class="school-name">DHEPDHEPI H.S. SCHOOL</p>
-      <div class="month-year">
-        <button id="prev"><</button>
-        <span id="month-year"></span>
-        <button id="next">></button>
+    <div class="calendar-wrapper">
+      <div class="calendar-header">
+        <img src="images/logo.png" alt="DDHSS Logo" class="school-logo" />
+        <br />
+        <span class="school-name-badge">Holiday Calendar</span>
+        <div class="month-year-nav">
+          <button id="prev"><i class="bi bi-chevron-left"></i></button>
+          <h2 id="month-year"></h2>
+          <button id="next"><i class="bi bi-chevron-right"></i></button>
+        </div>
       </div>
-      <div id="calendar"></div>
 
-      <!-- Overlay -->
-      <!-- Full-screen translucent overlay -->
-      <div class="overlay" id="overlay"></div>
+      <div class="calendar-body">
+        <div class="holiday-legend">
+          <span class="legend-pill full"
+            ><i class="bi bi-circle-fill"></i> Full Holiday</span
+          >
+          <span class="legend-pill obs"
+            ><i class="bi bi-circle-fill"></i> Observance</span
+          >
+          <span class="legend-pill mult"
+            ><i class="bi bi-circle-fill"></i> Multiple Events</span
+          >
+        </div>
 
-      <!-- Overlay Ends -->
-      <div id="holiday-info" class="modal">
-        <span class="close">&times;</span>
-        <p id="holiday-reason"></p>
-      </div>
-      <br />
-      <div class="info-container">
-        <p>Click on the coloured cells for more info on Holiday!</p>
+        <div id="calendar"></div>
       </div>
     </div>
-    <!-- Calender Ends -->
 
-    <!-- Footer Section -->
+    <div class="overlay" id="overlay"></div>
+
+    <div id="holiday-info" class="toast-modal">
+      <button class="close-btn"><i class="bi bi-x"></i></button>
+      <div class="toast-content-wrapper">
+        <div class="toast-icon">
+          <i class="bi bi-calendar-event"></i>
+        </div>
+        <div class="toast-text">
+          <h4 class="toast-title">Holiday Details</h4>
+          <p id="holiday-reason"></p>
+        </div>
+      </div>
+    </div>
     <section class="footer">
       <div class="footer-container">
         <div class="social">
@@ -400,100 +504,48 @@
       </div>
     </section>
 
-    <!-- Footer Javascript -->
     <script>
       // Get the current year automatically
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
     <script>
-      // add , then {type:'', name:''} inside every array[] to insert two holidays on the same day
-      const holidays = {
-        "2025-04-14": [{ type: "pure", name: "Bohag Bihu" }],
-        "2025-04-15": [{ type: "pure", name: "Bohag Bihu" }],
-        "2025-04-16": [{ type: "pure", name: "Bohag Bihu" }],
-        "2025-04-18": [{ type: "pure", name: "Good Friday" }],
-        "2025-04-21": [{ type: "pure", name: "Sati Sadhani Divas" }],
-        "2025-04-28": [{ type: "pure", name: "Tithi of Damodardeva" }],
+      // 1. Initialize an empty holidays object
+      let holidays = {};
 
-        "2025-05-01": [{ type: "pure", name: "May Day" }],
-        "2025-05-12": [{ type: "pure", name: "Buddha Purnima" }],
+      // ==========================================
+      // 🛠️ GOOGLE SHEET CONFIGURATION
+      // ==========================================
+      // Replace this with your actual Google Sheet ID
+      const sheetId = "1rrXZy1QMuDDgEdHF2AzUCcqK0syB90IOQN8k2e26m-s";
+      const sheetName = "Sheet1";
+      const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
 
-        "2025-06-07": [{ type: "pure", name: "Id-Ul-Zuha" }],
-        "2025-06-12": [
-          { type: "pure", name: "Janmotsav of Sri Sri Madhabdeva" },
-        ],
-
-        "2025-08-15": [{ type: "observable", name: "Independence Day" }],
-        "2025-08-25": [
-          { type: "observable", name: "Tirubhav Tithi of Srimanta Sankardeva" },
-        ],
-
-        "2025-09-03": [{ type: "pure", name: "Karam Puja" }],
-        "2025-09-12": [
-          { type: "observable", name: "Tirubhav Tithi of Sri Sri Madhabdeva" },
-        ],
-        "2025-09-14": [{ type: "pure", name: "Janmastomi" }],
-        "2025-09-29": [{ type: "pure", name: "Durga Puja" }],
-        "2025-09-30": [{ type: "pure", name: "Durga Puja" }],
-
-        "2025-10-01": [{ type: "pure", name: "Durga Puja" }],
-        "2025-10-02": [
-          { type: "pure", name: "Vijaya Dashomi" },
-          { type: "observable", name: "Janmotsav of Sri Sri Sankardeva" },
-          { type: "observable", name: "Birthday of Mahatma Gandhi" },
-        ],
-        "2025-10-18": [{ type: "pure", name: "Kati Bihu" }],
-        "2025-10-20": [{ type: "pure", name: "Kali Puja & Diwali" }],
-        "2025-10-23": [{ type: "pure", name: "Bhatri Dwitiya" }],
-        "2025-10-28": [{ type: "pure", name: "Chhat Puja" }],
-
-        "2025-11-05": [{ type: "pure", name: "Guru Nanak's Birthday" }],
-        "2025-11-24": [{ type: "observable", name: "Lachit Divas" }],
-
-        "2025-12-02": [{ type: "observable", name: "Asom Divas" }],
-        "2025-12-25": [{ type: "pure", name: "Christmas Day" }],
-
-        "2026-01-14": [{ type: "pure", name: "Magh Bihu" }],
-        "2026-01-15": [{ type: "pure", name: "Magh Bihu & Tusu Puja" }],
-        "2026-01-23": [
-          { type: "pure", name: "Netaji's Birthday" },
-          { type: "observable", name: "Saraswati Puja" },
-        ],
-        "2026-01-26": [{ type: "pure", name: "Republic Day" }],
-        "2026-01-27": [{ type: "pure", name: "Gwthar Bathou San" }],
-        "2026-01-31": [{ type: "pure", name: "Me-Dam-Me-Phi" }],
-
-        "2026-02-01": [{ type: "pure", name: "Bir Chilaray Divas" }],
-
-        "2026-03-04": [{ type: "pure", name: "Holi" }],
-        "2026-03-21": [{ type: "pure", name: "Id-Ul-Fitre" }],
-      };
-
-            let currentDate = new Date();
+      // ==========================================
+      // 📅 ACADEMIC SESSION LOGIC (APRIL to MARCH)
+      // ==========================================
+      let currentDate = new Date();
       let currentYear = currentDate.getFullYear();
-      
-      // If we are in Jan (0), Feb (1), or Mar (2), the session started in the PREVIOUS year.
-      // Otherwise, the session started in the CURRENT year.
-      let academicStartYear = currentDate.getMonth() < 3 ? currentYear - 1 : currentYear;
+      let academicStartYear =
+        currentDate.getMonth() < 3 ? currentYear - 1 : currentYear;
 
-      const startDate = new Date(academicStartYear, 3); // April of the Session Start Year
-      const endDate = new Date(academicStartYear + 1, 2); // March of the next year
+      const startDate = new Date(academicStartYear, 3);
+      const endDate = new Date(academicStartYear + 1, 2);
 
+      if (currentDate < startDate) currentDate = new Date(startDate);
+      if (currentDate > endDate) currentDate = new Date(endDate);
 
-      // Ensure the calendar starts within the valid range
-      if (currentDate < startDate) currentDate = startDate;
-      if (currentDate > endDate) currentDate = endDate;
-
+      // ==========================================
+      // 🎯 DOM ELEMENTS
+      // ==========================================
       const calendar = document.getElementById("calendar");
       const monthYear = document.getElementById("month-year");
       const prevButton = document.getElementById("prev");
       const nextButton = document.getElementById("next");
       const modal = document.getElementById("holiday-info");
-      //overlay
       const overlay = document.getElementById("overlay");
       const modalContent = document.getElementById("holiday-reason");
-      const closeModal = document.querySelector(".modal .close");
+      const closeModal = document.querySelector(".close-btn");
 
       const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       const months = [
@@ -511,26 +563,90 @@
         "December",
       ];
 
+      // --- NEW: Helper to format Date objects back to YYYY-MM-DD for the grid ---
+      const formatDateObj = (d) => {
+        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+      };
+
+      // ==========================================
+      // 🔄 FETCH DATA FROM GOOGLE SHEETS
+      // ==========================================
+      async function loadHolidays() {
+        try {
+          const response = await fetch(url);
+          const text = await response.text();
+          const jsonData = JSON.parse(text.substr(47).slice(0, -2));
+          const newHolidays = {};
+
+          jsonData.table.rows.forEach((row) => {
+            if (row.c[0] && row.c[1] && row.c[2]) {
+              const rawDate = String(row.c[0].v).trim();
+              const type = row.c[1].v.trim();
+              const name = row.c[2].v.trim();
+
+              // --- RANGE LOGIC: Check if the string contains " to " ---
+              if (rawDate.toLowerCase().includes(" to ")) {
+                const dateParts = rawDate.toLowerCase().split(" to ");
+                const startStr = dateParts[0].trim().split(/[-/]/);
+                const endStr = dateParts[1].trim().split(/[-/]/);
+
+                if (startStr.length === 3 && endStr.length === 3) {
+                  let start = new Date(
+                    startStr[2],
+                    startStr[1] - 1,
+                    startStr[0],
+                  );
+                  let end = new Date(endStr[2], endStr[1] - 1, endStr[0]);
+
+                  let loopDate = new Date(start);
+                  while (loopDate <= end) {
+                    const dateKey = formatDateObj(loopDate);
+                    if (!newHolidays[dateKey]) newHolidays[dateKey] = [];
+                    newHolidays[dateKey].push({ type: type, name: name });
+                    loopDate.setDate(loopDate.getDate() + 1);
+                  }
+                }
+              }
+              // --- SINGLE DATE LOGIC ---
+              else {
+                const parts = rawDate.split(/[-/]/);
+                if (parts.length === 3) {
+                  const dateKey = `${parts[2]}-${parts[1].padStart(2, "0")}-${parts[0].padStart(2, "0")}`;
+                  if (!newHolidays[dateKey]) newHolidays[dateKey] = [];
+                  newHolidays[dateKey].push({ type: type, name: name });
+                }
+              }
+            }
+          });
+
+          holidays = newHolidays;
+          renderCalendar(currentDate);
+        } catch (error) {
+          console.error("Error fetching holidays:", error);
+          calendar.innerHTML =
+            "<p style='grid-column: 1 / -1; color: red;'>Error loading calendar data. Please try again later.</p>";
+        }
+      }
+
+      // ==========================================
+      // 🎨 RENDER CALENDAR UI
+      // ==========================================
       function renderCalendar(date) {
         calendar.innerHTML = "";
 
         const firstDay = new Date(
           date.getFullYear(),
           date.getMonth(),
-          1
+          1,
         ).getDay();
         const daysInMonth = new Date(
           date.getFullYear(),
           date.getMonth() + 1,
-          0
+          0,
         ).getDate();
 
-        // Update month and year display
-        monthYear.textContent = `${
-          months[date.getMonth()]
-        } ${date.getFullYear()}`;
+        monthYear.textContent = `${months[date.getMonth()]} ${date.getFullYear()}`;
 
-        // Weekdays Header
         weekdays.forEach((day) => {
           const weekdayDiv = document.createElement("div");
           weekdayDiv.className = "weekday";
@@ -538,29 +654,24 @@
           calendar.appendChild(weekdayDiv);
         });
 
-        // Blank Days
         for (let i = 0; i < firstDay; i++) {
           calendar.appendChild(document.createElement("div"));
         }
 
-        // Days in Month
         for (let day = 1; day <= daysInMonth; day++) {
           const dayDiv = document.createElement("div");
-          const dateStr = `${date.getFullYear()}-${String(
-            date.getMonth() + 1
-          ).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+          const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 
           dayDiv.className = "day";
           dayDiv.textContent = day;
 
           if (holidays[dateStr] && holidays[dateStr].length > 0) {
-            // Apply color coding based on holiday rules
             if (holidays[dateStr].length > 1) {
-              dayDiv.classList.add("multiple-holiday"); // Green for multiple holidays
+              dayDiv.classList.add("multiple-holiday");
             } else if (holidays[dateStr][0].type === "pure") {
-              dayDiv.classList.add("fully-closed-holiday"); // Red for fully closed
+              dayDiv.classList.add("fully-closed-holiday");
             } else if (holidays[dateStr][0].type === "observable") {
-              dayDiv.classList.add("observable-holiday"); // Yellow for observable
+              dayDiv.classList.add("observable-holiday");
             }
             dayDiv.dataset.date = dateStr;
           }
@@ -574,7 +685,6 @@
           calendar.appendChild(dayDiv);
         }
 
-        // Disable Buttons
         prevButton.disabled =
           date.getFullYear() === startDate.getFullYear() &&
           date.getMonth() === startDate.getMonth();
@@ -583,6 +693,9 @@
           date.getMonth() === endDate.getMonth();
       }
 
+      // ==========================================
+      // 🖱️ EVENT LISTENERS
+      // ==========================================
       prevButton.addEventListener("click", () => {
         currentDate.setMonth(currentDate.getMonth() - 1);
         renderCalendar(currentDate);
@@ -603,11 +716,10 @@
             const holidayText = holidayList
               .map(
                 (holiday) =>
-                  `• ${holiday.name} (${
-                    holiday.type === "pure" ? "Full Holiday" : "Observance"
-                  })`
+                  `• ${holiday.name} (${holiday.type === "pure" ? "Full Holiday" : "Observance"})`,
               )
-              .join("<br>");
+              .join("<br><br>");
+
             modalContent.innerHTML = holidayText;
             modal.style.display = "block";
             overlay.style.display = "block";
@@ -615,16 +727,20 @@
         }
       });
 
-      closeModal.addEventListener("click", () => {
+      const hideModal = () => {
         modal.style.display = "none";
         overlay.style.display = "none";
-      });
+      };
 
-      // Initialize
-      renderCalendar(currentDate);
+      closeModal.addEventListener("click", hideModal);
+      overlay.addEventListener("click", hideModal);
+
+      // ==========================================
+      // 🚀 START THE APP
+      // ==========================================
+      loadHolidays();
     </script>
 
-    <!-- Bootstrap Javascript -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
